@@ -11,5 +11,5 @@ export const products = [
   { id:9,  name:"Императорский букет", desc:"101 роза сорта David Austin в атласной ленте",             price:22000, oldPrice:28000, image:"https://kimi-web-img.moonshot.cn/img/basketeer.s3.ap-south-1.amazonaws.com/d1a31b5adaa0bbf93683c632bab9ccd767432e63.jpg", badge:"LUXE" },
   { id:10, name:"Пионовый рай",        desc:"Пионы, орхидеи, эустома в шляпной коробке",               price:25000, oldPrice:32000, image:"https://kimi-web-img.moonshot.cn/img/sites.create-cdn.net/d10602bbb53571c55641fd0cd573bc880db26791.jpeg", badge:"VIP" },
   { id:11, name:"Золотая коллекция",   desc:"Редкие сорта с золотым декором и лентами",                 price:35000, oldPrice:42000, image:"https://kimi-web-img.moonshot.cn/img/dpsainiflorist.com/0a4ade1de057cbe84aaafa5f3debc5adbb157d9b.jpg", badge:"PREMIUM" },
-  { id:12, name:"Свадебная мечта",     desc:"Авторская композиция под ключ для невесты",                price:50000, oldPrice:65000, image:"/images/wedding.jpg", badge:"EXCLUSIF" }
+  { id:12, name:"Свадебная мечта",     desc:"Авторская композиция под ключ для невесты",                price:50000, oldPrice:65000, image:"images/wedding.jpg", badge:"EXCLUSIF" }
 ];
