@@ -16,3 +16,5 @@ services:
         sync: false
       - key: TG_CHAT_ID
         sync: false
+      - key: GOOGLE_SITE_VERIFICATION
+        sync: false

@@ -5,6 +5,7 @@ import { fileURLToPath } from 'node:url';
 import { config } from './config.js';
 import { ordersRouter } from './routes/orders.js';
 import { seoRouter } from './routes/seo.js';
+import { escapeHtml } from '../public/js/utils/format.js';
 
 const rootDir = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 const publicDir = path.join(rootDir, 'public');
@@ -50,10 +51,15 @@ export function createApp() {
   app.use('/api/orders', ordersRouter);
   app.get('/healthz', (req, res) => res.json({ status: 'ok' }));
 
-  // index.html читаем один раз и подставляем публичный адрес сайта (canonical, og:url, sitemap).
+  // index.html читаем один раз и подставляем публичный адрес сайта (canonical, og:url, sitemap)
+  // и, если задан, метатег подтверждения для Google Search Console.
+  const verificationTag = config.googleSiteVerification
+    ? `<meta name="google-site-verification" content="${escapeHtml(config.googleSiteVerification)}">`
+    : '';
   const indexHtml = fs
     .readFileSync(path.join(publicDir, 'index.html'), 'utf8')
-    .replaceAll('__SITE_URL__', config.siteUrl);
+    .replaceAll('__SITE_URL__', config.siteUrl)
+    .replace('<!-- __GOOGLE_SITE_VERIFICATION__ -->', verificationTag);
   app.get(['/', '/index.html'], (req, res) => res.type('html').send(indexHtml));
 
   app.use(express.static(publicDir, { index: false, maxAge: '1d' }));

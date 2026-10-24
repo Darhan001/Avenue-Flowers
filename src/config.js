@@ -6,6 +6,8 @@ const port = Number(process.env.PORT) || 3000;
 export const config = {
   port,
   siteUrl: (process.env.SITE_URL || `http://localhost:${port}`).replace(/\/$/, ''),
+  // Код подтверждения сайта из Google Search Console (метатег google-site-verification).
+  googleSiteVerification: (process.env.GOOGLE_SITE_VERIFICATION || '').trim(),
   // Число прокси перед приложением (на Render — 1). Нужно, чтобы видеть настоящий IP клиента.
   trustProxy: Number(process.env.TRUST_PROXY ?? 1),
   telegram: {

@@ -42,6 +42,7 @@ npm start                # http://localhost:3000
 | `SITE_URL` | публичный адрес сайта, например `https://avenueflowers.kg` — нужен для sitemap, canonical и Open Graph |
 | `TG_TOKEN` | токен Telegram-бота (@BotFather) |
 | `TG_CHAT_ID` | id чата, куда приходят заявки |
+| `GOOGLE_SITE_VERIFICATION` | код из метатега Google Search Console (только значение content) |
 | `TRUST_PROXY` | число прокси перед сервером (по умолчанию 1, как на Render) |
 
 ## Деплой
@@ -51,6 +52,6 @@ npm start                # http://localhost:3000
 ## Чеклист запуска в Google
 
 1. Задеплоить сайт и привязать домен с HTTPS, задать `SITE_URL` этим адресом.
-2. В [Google Search Console](https://search.google.com/search-console) добавить сайт, подтвердить владение и отправить `https://ВАШ_ДОМЕН/sitemap.xml`.
+2. В [Google Search Console](https://search.google.com/search-console) добавить сайт (тип «Префикс URL»), выбрать подтверждение «HTML-тег», вставить код из `content` в `GOOGLE_SITE_VERIFICATION` на Render, подтвердить владение и отправить `https://ВАШ_ДОМЕН/sitemap.xml`.
 3. Создать профиль в [Google Бизнес Профиле](https://www.google.com/business/) (две точки в Оше) — это даёт карточку на Картах и в поиске по городу.
 4. Проверить разметку на [Rich Results Test](https://search.google.com/test/rich-results): должна распознаться организация `Florist`.
