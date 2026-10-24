@@ -1,0 +1,18 @@
+# Blueprint для Render: сайт + API заявок. Секреты задаются в панели Render, не в репозитории.
+services:
+  - type: web
+    name: avenue-flowers
+    runtime: node
+    plan: free
+    buildCommand: npm ci
+    startCommand: npm start
+    healthCheckPath: /healthz
+    envVars:
+      - key: NODE_VERSION
+        value: "22"
+      - key: SITE_URL
+        sync: false
+      - key: TG_TOKEN
+        sync: false
+      - key: TG_CHAT_ID
+        sync: false

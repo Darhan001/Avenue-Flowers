@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#c2185b">
+
+  <!-- SEO -->
+  <title>Avenue Flowers — цветочная лавка и доставка цветов в Оше</title>
+  <meta name="description" content="Avenue Flowers — свежие цветы с доставкой по Ошу. Букеты роз, микс-букеты, цветы в коробке и свадебная флористика. Заказ онлайн.">
+  <meta name="keywords" content="цветы Ош, доставка цветов Ош, букеты Ош, цветочный магазин Ош, свадебная флористика Ош, букет роз">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="__SITE_URL__/">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🌸%3C/text%3E%3C/svg%3E">
+
+  <!-- Open Graph / соцсети -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Avenue Flowers">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:title" content="Avenue Flowers — цветы с доставкой по Ошу">
+  <meta property="og:description" content="Букеты на любой повод с доставкой по Ошу. Заказ онлайн или в WhatsApp.">
+  <meta property="og:url" content="__SITE_URL__/">
+  <meta property="og:image" content="__SITE_URL__/images/basket-hydrangea.jpg">
+
+  <!-- Структурированные данные: локальный магазин для Google -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Florist",
+    "name": "Avenue Flowers",
+    "url": "__SITE_URL__/",
+    "telephone": "+996501210123",
+    "email": "avenueflowers.osh@gmail.com",
+    "image": "__SITE_URL__/images/basket-hydrangea.jpg",
+    "priceRange": "$$",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "ул. Ленина, 202",
+      "addressLocality": "Ош",
+      "addressCountry": "KG"
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+      "opens": "09:00",
+      "closes": "21:00"
+    },
+    "sameAs": ["https://www.instagram.com/avenueflowers_osh/"]
+  }
+  </script>
+
+  <!-- Шрифты и иконки -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Стили -->
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<a href="#main" class="skip-link">Перейти к содержимому</a>
+<noscript><div class="noscript-note">Для работы каталога, корзины и формы заказа включите JavaScript. Заказать можно по телефону +996 501 21 01 23.</div></noscript>
+
+<!-- ===================== PRELOADER ===================== -->
+<div class="preloader" id="preloader" aria-hidden="true">
+  <div class="preloader-inner">
+    <svg class="preloader-flower" viewBox="0 0 100 100" aria-hidden="true">
+      <path d="M50 20 Q60 5 70 20 Q85 15 80 30 Q95 40 80 50 Q85 65 70 60 Q60 75 50 60 Q40 75 30 60 Q15 65 20 50 Q5 40 20 30 Q15 15 30 20 Q40 5 50 20" fill="#c2185b" opacity=".8"/>
+      <circle cx="50" cy="40" r="8" fill="#880e4f"/>
+    </svg>
+    <div id="preloaderLogo" class="preloader-logo"></div>
+  </div>
+</div>
+
+<!-- ===================== PETALS ===================== -->
+<div id="petals-container" aria-hidden="true"></div>
+
+<!-- ===================== NAVBAR ===================== -->
+<nav id="navbar">
+  <a href="#home" class="logo">
+    <i class="fas fa-spa"></i>
+    Avenue Flowers
+  </a>
+
+  <ul class="nav-links">
+    <li><a href="#home">Главная</a></li>
+    <li><a href="#about">О нас</a></li>
+    <li><a href="#catalog">Каталог</a></li>
+    <li><a href="#categories">Категории</a></li>
+    <li><a href="#payments">Оплата</a></li>
+    <li><a href="#contact">Контакты</a></li>
+  </ul>
+
+  <div class="nav-right">
+    <button type="button" class="cart-icon" data-action="toggle-cart" aria-label="Корзина">
+      <i class="fas fa-shopping-bag"></i>
+      <span class="cart-count" id="cartCount">0</span>
+    </button>
+    <button type="button" class="burger" id="burgerBtn" aria-label="Меню" aria-expanded="false" aria-controls="mobileNav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ===================== MOBILE NAV ===================== -->
+<div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+<div class="mobile-nav" id="mobileNav">
+  <ul class="mobile-nav-links">
+    <li><a href="#home" data-close-mobile-nav><i class="fas fa-home"></i> Главная</a></li>
+    <li><a href="#about" data-close-mobile-nav><i class="fas fa-heart"></i> О нас</a></li>
+    <li><a href="#catalog" data-close-mobile-nav><i class="fas fa-spa"></i> Каталог</a></li>
+    <li><a href="#categories" data-close-mobile-nav><i class="fas fa-th-large"></i> Категории</a></li>
+    <li><a href="#payments" data-close-mobile-nav><i class="fas fa-credit-card"></i> Оплата</a></li>
+    <li><a href="#contact" data-close-mobile-nav><i class="fas fa-phone"></i> Контакты</a></li>
+  </ul>
+  <div class="mobile-nav-footer">
+    <p>+996 501 21 01 23 · Ежедневно 9:00 — 21:00</p>
+    <div class="mobile-nav-socials">
+      <a href="https://www.instagram.com/avenueflowers_osh/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://wa.me/996501210123" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+    </div>
+  </div>
+</div>
+
+<main id="main">
+
+<!-- ===================== HERO ===================== -->
+<section class="hero" id="home">
+  <div class="hero-content">
+    <h1>Дарите <span>любовь</span><br>с Avenue Flowers</h1>
+    <p>Свежайшие цветы с доставкой по Ошу.<br>Букеты, которые говорят за вас.</p>
+    <div class="hero-btns">
+      <a href="#catalog" class="btn btn-primary">Выбрать букет</a>
+      <a href="#contact" class="btn btn-outline">Заказать доставку</a>
+    </div>
+  </div>
+
+  <div class="hero-float float-1">
+    <img src="/images/basket-hydrangea.jpg" alt="Корзина синих гортензий с белыми орхидеями">
+  </div>
+  <div class="hero-float float-2">
+    <img src="https://kimi-web-img.moonshot.cn/img/sites.create-cdn.net/d10602bbb53571c55641fd0cd573bc880db26791.jpeg" alt="Цветы в коробке">
+  </div>
+  <div class="hero-float float-3">
+    <img src="https://kimi-web-img.moonshot.cn/img/violafloral.com/798c41e374f6cf635c160576966a40d4f2116fe5.jpg" alt="Розы">
+  </div>
+  <div class="hero-float float-4">
+    <img src="https://kimi-web-img.moonshot.cn/img/asset.bloomnation.com/a6bbb88fccf5773cc95e4ffcf15ca39118c746df" alt="Тюльпаны">
+  </div>
+</section>
+
+<!-- ===================== ABOUT ===================== -->
+<section id="about">
+  <div class="about reveal">
+    <div class="about-img">
+      <img src="https://kimi-web-img.moonshot.cn/img/sites.create-cdn.net/74de36324a68c1ac66daa9696e60ce3b44c02968.jpeg" alt="Флористы Avenue Flowers за работой" loading="lazy">
+    </div>
+    <div class="about-text">
+      <h3>Мы создаём эмоции<br>с 2020 года</h3>
+      <p>Avenue Flowers — это не просто цветочный магазин. Это место, где каждый букет становится историей. Мы тщательно подбираем свежайшие цветы со всего мира и создаём уникальные композиции для любого повода.</p>
+      <p>Наши флористы — настоящие художники, которые вкладывают душу в каждую работу. От нежных романтичных букетов до роскошных композиций для особых событий.</p>
+      <div class="stats">
+        <div class="stat-item"><h4>5000+</h4><span>Клиентов</span></div>
+        <div class="stat-item"><h4>50+</h4><span>Видов цветов</span></div>
+        <div class="stat-item"><h4>6+</h4><span>Лет опыта</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CATALOG ===================== -->
+<section class="products" id="catalog">
+  <div class="section-title reveal">
+    <h2>Наши букеты</h2>
+    <div class="line"></div>
+    <p>Каждый букет собирается вручную с любовью и вниманием к деталям</p>
+  </div>
+  <div class="products-grid" id="productsGrid"></div>
+</section>
+
+<!-- ===================== CATEGORIES ===================== -->
+<section class="categories" id="categories">
+  <div class="section-title reveal">
+    <h2>Категории</h2>
+    <div class="line"></div>
+    <p>Найдите идеальный букет для любого случая</p>
+  </div>
+  <div class="cat-grid reveal">
+    <div class="cat-item">
+      <img src="https://kimi-web-img.moonshot.cn/img/basketeer.s3.ap-south-1.amazonaws.com/052e0c62d1972ce408269d9b2ffcb14ec3fc7bf4.jpg" alt="Романтические букеты" loading="lazy">
+      <div class="cat-overlay"><h4>Романтика</h4><span>Букеты для любимых</span></div>
+    </div>
+    <div class="cat-item">
+      <img src="https://kimi-web-img.moonshot.cn/img/dpsainiflorist.com/0a4ade1de057cbe84aaafa5f3debc5adbb157d9b.jpg" alt="Праздничные букеты" loading="lazy">
+      <div class="cat-overlay"><h4>Праздники</h4><span>Дни рождения, юбилеи</span></div>
+    </div>
+    <div class="cat-item">
+      <img src="https://kimi-web-img.moonshot.cn/img/sites.create-cdn.net/74de36324a68c1ac66daa9696e60ce3b44c02968.jpeg" alt="Корпоративные букеты" loading="lazy">
+      <div class="cat-overlay"><h4>Корпоративные</h4><span>Для бизнеса и офисов</span></div>
+    </div>
+    <div class="cat-item">
+      <img src="/images/wedding.jpg" alt="Свадебная флористика" loading="lazy">
+      <div class="cat-overlay"><h4>Свадьбы</h4><span>Свадебная флористика</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TESTIMONIALS ===================== -->
+<section class="testimonials">
+  <div class="section-title reveal"><h2>Отзывы клиентов</h2><div class="line"></div></div>
+  <div class="testi-slider reveal">
+    <div class="testi-item active">
+      <i class="fas fa-quote-left"></i>
+      <p>"Заказывала букет на день рождения мамы — она была в восторге! Цветы свежие, композиция просто волшебная. Спасибо Avenue Flowers!"</p>
+      <div class="testi-author">Айгуль М.<span>Ош, Кыргызстан</span></div>
+    </div>
+    <div class="testi-item">
+      <i class="fas fa-quote-left"></i>
+      <p>"Лучший цветочный магазин в городе! Доставка всегда вовремя, букеты шикарные. Рекомендую всем друзьям."</p>
+      <div class="testi-author">Бакыт К.<span>Ош, Кыргызстан</span></div>
+    </div>
+    <div class="testi-item">
+      <i class="fas fa-quote-left"></i>
+      <p>"Оформляли свадьбу — всё было на высшем уровне. Арка, букет невесты, декор столов — всё идеально!"</p>
+      <div class="testi-author">Назима Т.<span>Ош, Кыргызстан</span></div>
+    </div>
+    <div class="testi-dots">
+      <button type="button" class="dot active" aria-label="Отзыв 1"></button>
+      <button type="button" class="dot" aria-label="Отзыв 2"></button>
+      <button type="button" class="dot" aria-label="Отзыв 3"></button>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PAYMENT METHODS ===================== -->
+<section class="payments" id="payments">
+  <div class="section-title reveal">
+    <h2>Способы оплаты</h2>
+    <div class="line"></div>
+    <p>Принимаем все основные платёжные системы Кыргызстана</p>
+  </div>
+
+  <div class="payments-intro reveal">
+    <p>Оплачивайте удобным для вас способом — через мобильный банкинг, карту Элкарт или наличными при доставке. Все платежи проходят безопасно и мгновенно.</p>
+  </div>
+
+  <div class="payment-methods-grid" id="paymentGrid"></div>
+
+  <div class="payment-note reveal">
+    <i class="fas fa-shield-alt"></i>
+    <div>
+      <h5>Безопасная оплата</h5>
+      <p>Все переводы через Мбанк, Optima Bank и Бакай Банк проходят мгновенно. После оплаты пришлите скриншот на WhatsApp <strong>+996 501 21 01 23</strong> для подтверждения заказа. Наличные принимаются при получении без дополнительных комиссий.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CONTACT & ORDER ===================== -->
+<section id="contact">
+  <div class="contact reveal">
+    <div class="contact-info">
+      <h3>Свяжитесь с нами</h3>
+
+      <div class="contact-item">
+        <div class="ci-icon"><i class="fas fa-map-marker-alt"></i></div>
+        <div>
+          <h5>Адреса магазинов</h5>
+          <p>ул. Ленина, 202<br>ул. Алымбека Датка, 200<br>г. Ош, Кыргызстан</p>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="ci-icon"><i class="fas fa-phone"></i></div>
+        <div>
+          <h5>Телефон / WhatsApp</h5>
+          <p><a href="tel:+996501210123" class="link-inherit">+996 501 21 01 23</a><br>Ежедневно 9:00 — 21:00</p>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="ci-icon"><i class="fas fa-envelope"></i></div>
+        <div>
+          <h5>Email</h5>
+          <p><a href="mailto:avenueflowers.osh@gmail.com" class="link-inherit">avenueflowers.osh@gmail.com</a></p>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="ci-icon"><i class="fas fa-truck"></i></div>
+        <div>
+          <h5>Доставка</h5>
+          <p>Бесплатная доставка по Ошу<br>от 2 500 сом</p>
+        </div>
+      </div>
+
+      <div class="social-links">
+        <a href="https://www.instagram.com/avenueflowers_osh/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://wa.me/996501210123" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+      </div>
+
+      <!-- MAP -->
+      <div class="map-wrap">
+        <div class="map-label">
+          <i class="fas fa-map-marker-alt"></i> Наши магазины на карте
+        </div>
+        <div class="map-tabs">
+          <button type="button" class="map-tab active" data-map-index="0" data-map-url="https://maps.google.com/?q=40.5284,72.7985">ул. Ленина, 202</button>
+          <button type="button" class="map-tab" data-map-index="1" data-map-url="https://maps.google.com/?q=40.5264,72.7945">ул. Алымбека Датка, 200</button>
+        </div>
+        <div class="map-frames">
+          <iframe class="map-frame active" title="Карта: ул. Ленина, 202"
+            src="https://www.google.com/maps?q=40.5284,72.7985&z=16&output=embed"
+            allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <iframe class="map-frame" title="Карта: ул. Алымбека Датка, 200"
+            src="https://www.google.com/maps?q=40.5264,72.7945&z=16&output=embed"
+            allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div class="map-links">
+          <a href="https://maps.google.com/?q=40.5284,72.7985" target="_blank" rel="noopener" class="map-open-btn">
+            <i class="fas fa-directions"></i> Открыть в Google Maps
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ORDER FORM -->
+    <div class="contact-form">
+      <form id="orderForm">
+        <div class="form-group">
+          <label for="fieldName">Ваше имя</label>
+          <input type="text" id="fieldName" placeholder="Введите имя" required autocomplete="name">
+        </div>
+
+        <div class="form-group">
+          <label for="fieldPhone">Телефон</label>
+          <input type="tel" id="fieldPhone" placeholder="+996 XXX XXX XXX" required autocomplete="tel">
+        </div>
+
+        <div class="form-group">
+          <label for="fieldCategory">Что хотите заказать?</label>
+          <select id="fieldCategory">
+            <option value="">Выберите категорию</option>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="fieldDate">Дата доставки</label>
+            <input type="date" id="fieldDate" required>
+          </div>
+          <div class="form-group">
+            <label for="fieldTime">Время доставки</label>
+            <select id="fieldTime" required>
+              <option value="">Выберите время</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Адрес доставки</label>
+          <div class="address-block">
+            <div class="form-group">
+              <input type="text" id="fieldStreet" placeholder="Улица" required autocomplete="address-line1">
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <input type="text" id="fieldHouse" placeholder="Дом" required>
+              </div>
+              <div class="form-group">
+                <input type="text" id="fieldApt" placeholder="Кв. / офис">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <input type="text" id="fieldFloor" placeholder="Этаж">
+              </div>
+              <div class="form-group">
+                <input type="text" id="fieldLandmark" placeholder="Ориентир">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PAYMENT SELECTOR -->
+        <div class="form-group">
+          <label>Способ оплаты</label>
+          <div class="payment-selector" id="paymentSelector"></div>
+        </div>
+
+        <div class="form-group">
+          <label for="fieldComment">Комментарий</label>
+          <textarea id="fieldComment" placeholder="Опишите желаемый букет, цвета, повод..."></textarea>
+        </div>
+
+        <!-- Ловушка для ботов: люди это поле не видят и не заполняют -->
+        <div class="visually-hidden" aria-hidden="true">
+          <label for="fieldWebsite">Не заполняйте это поле</label>
+          <input type="text" id="fieldWebsite" name="website" tabindex="-1" autocomplete="off">
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block">
+          <i class="fas fa-paper-plane btn-icon"></i>Отправить заявку
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ===================== FOOTER ===================== -->
+<footer>
+  <div class="footer-content">
+    <div class="footer-brand">
+      <h3><i class="fas fa-spa"></i> Avenue Flowers</h3>
+      <p>Создаём красоту и дарим эмоции с 2020 года. Лучшие цветы в Оше для самых дорогих людей.</p>
+    </div>
+    <div class="footer-links">
+      <h4>Меню</h4>
+      <ul>
+        <li><a href="#home">Главная</a></li>
+        <li><a href="#about">О нас</a></li>
+        <li><a href="#catalog">Каталог</a></li>
+        <li><a href="#payments">Оплата</a></li>
+        <li><a href="#contact">Контакты</a></li>
+      </ul>
+    </div>
+    <div class="footer-links">
+      <h4>Категории</h4>
+      <ul>
+        <li><a href="#catalog">Букеты роз</a></li>
+        <li><a href="#catalog">Микс букеты</a></li>
+        <li><a href="#catalog">Цветы в коробке</a></li>
+        <li><a href="#catalog">Свадебная флористика</a></li>
+      </ul>
+    </div>
+    <div class="footer-links">
+      <h4>Контакты</h4>
+      <ul>
+        <li><a href="tel:+996501210123">+996 501 21 01 23</a></li>
+        <li><a href="#contact">ул. Ленина, 202</a></li>
+        <li><a href="#contact">ул. Алымбека Датка, 200</a></li>
+        <li><a href="https://www.instagram.com/avenueflowers_osh/" target="_blank" rel="noopener">Instagram</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Avenue Flowers · Все права защищены · Сделано с любовью ❤️ в Оше</p>
+  </div>
+</footer>
+
+<!-- ===================== CART SIDEBAR ===================== -->
+<div class="cart-overlay" id="cartOverlay" data-action="toggle-cart"></div>
+<aside class="cart-sidebar" id="cartSidebar" aria-label="Корзина">
+  <div class="cart-header">
+    <h3>Ваша корзина</h3>
+    <button type="button" class="close-cart" data-action="toggle-cart" aria-label="Закрыть"><i class="fas fa-times"></i></button>
+  </div>
+  <div class="cart-items" id="cartItems"></div>
+  <div class="cart-footer">
+    <div class="cart-total">
+      <span>Итого:</span>
+      <span id="cartTotal">0 сом</span>
+    </div>
+    <button type="button" class="checkout-btn" data-action="checkout">
+      <i class="fas fa-credit-card" style="margin-right:8px;"></i>Оформить заказ
+    </button>
+  </div>
+</aside>
+
+<!-- ===================== NOTIFICATION ===================== -->
+<div class="notification" id="notification" role="status" aria-live="polite">
+  <div class="notif-icon"><i class="fas fa-check"></i></div>
+  <div>
+    <h5 id="notifTitle"></h5>
+    <p id="notifText"></p>
+  </div>
+</div>
+
+<!-- ===================== ORDER MODAL ===================== -->
+<div class="modal-overlay" id="orderModal">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="orderModalTitle">
+    <i class="fas fa-check-circle"></i>
+    <h3 id="orderModalTitle">Заявка отправлена!</h3>
+    <p>Спасибо! Мы свяжемся с вами для подтверждения заказа.</p>
+    <div class="modal-order-summary" id="modalSummary"></div>
+    <button type="button" class="modal-btn" data-action="close-modal">Отлично!</button>
+  </div>
+</div>
+
+<!-- ===================== LIGHTBOX ===================== -->
+<div class="lightbox" id="lightbox">
+  <button type="button" class="lightbox-nav" data-lb-action="prev" aria-label="Предыдущий">
+    <i class="fas fa-chevron-left"></i>
+  </button>
+  <div class="lightbox-inner">
+    <button type="button" class="lightbox-close" data-lb-action="close" aria-label="Закрыть">
+      <i class="fas fa-times"></i>
+    </button>
+    <div class="lightbox-img-wrap">
+      <img id="lbImg" src="" alt="">
+    </div>
+    <div class="lightbox-info">
+      <h3 id="lbName"></h3>
+      <p id="lbDesc"></p>
+      <div class="lightbox-price">
+        <span id="lbPrice"></span>
+        <span id="lbOldPrice"></span>
+      </div>
+      <button type="button" class="lightbox-add" id="lbAddBtn" data-lb-action="add">
+        <i class="fas fa-shopping-bag"></i> В корзину
+      </button>
+    </div>
+  </div>
+  <button type="button" class="lightbox-nav" data-lb-action="next" aria-label="Следующий">
+    <i class="fas fa-chevron-right"></i>
+  </button>
+</div>
+
+<script type="module" src="/script.js"></script>
+</body>
+</html>
