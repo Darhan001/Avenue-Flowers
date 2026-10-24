@@ -6,7 +6,6 @@ import { initModal } from './js/components/feedback.js';
 import { renderPaymentInfo, renderPaymentSelector, initPaymentSelector } from './js/components/payments.js';
 import { initOrderForm } from './js/components/orderForm.js';
 import { initTestimonials } from './js/components/testimonials.js';
-import { initMapSwitcher } from './js/components/mapSwitcher.js';
 import { initNavigation } from './js/ui/navigation.js';
 import { initPreloader, initPetals, initReveal } from './js/ui/effects.js';
 
@@ -25,6 +24,5 @@ initPaymentSelector();
 initOrderForm();
 initModal();
 initTestimonials();
-initMapSwitcher();
 
 initReveal();

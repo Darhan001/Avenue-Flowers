@@ -316,18 +316,6 @@ footer { background:var(--rose-dark); color:#fff; padding:56px 48px 28px; }
   padding: 12px 20px; font-size: 14px; font-weight: 600;
   display: flex; align-items: center; gap: 10px;
 }
-.map-tabs {
-  display: flex; background: #fff; border-bottom: 1px solid #eee;
-}
-.map-tab {
-  flex: 1; padding: 12px 10px;
-  border: none; background: none; cursor: pointer;
-  font-size: 12px; font-weight: 600; color: var(--text-light);
-  text-transform: uppercase; letter-spacing: .5px;
-  transition: background-color .3s, color .3s, border-color .3s; border-bottom: 3px solid transparent;
-  font-family: 'DM Sans', sans-serif;
-}
-.map-tab.active { color: var(--rose); border-bottom-color: var(--rose); background: var(--rose-light); }
 .map-frames { position: relative; height: 280px; }
 .map-frame {
   position: absolute; inset: 0;
